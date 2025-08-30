@@ -1,0 +1,27 @@
+demands:
+  - id: "demand-001"
+    name: "High Availability for Customer Portal"
+    sla: "99.9%"
+    expected_users: 5000
+    solved_by: "app-001"
+
+applications:
+  - id: "app-001"
+    name: "CustomerPortal"
+    description: "Frontend and backend stack for the customer portal"
+    composed_of:
+      - "svc-frontend"
+      - "svc-backend"
+
+services:
+  - id: "svc-frontend"
+    name: "Frontend"
+    type: "web-ui"
+    selector:
+      service: "frontend"    # match with Resource.labels["service"] == "frontend"
+
+  - id: "svc-backend"
+    name: "Backend"
+    type: "api"
+    selector:
+      service: "backend"     # match with Resource.labels["service"] == "backend"

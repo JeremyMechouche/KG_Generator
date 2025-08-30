@@ -1,0 +1,40 @@
+demands: 
+  - id: demand-001 
+    name: "Data Analytics Request" 
+    sla: "99.9%" 
+    solved_by: ["app-analytics"] 
+
+applications: 
+  - id: app-analytics 
+    name: "Analytics Platform" 
+    composed_of: ["svc-warehouse", "svc-ml"] 
+
+services: 
+  - id: svc-warehouse 
+    name: "Data Warehouse" 
+    selector: 
+      aws_tags: 
+        Application: "analytics" 
+        Tier: "database" 
+
+  - id: svc-ml
+    name: "Machine Learning API"
+    selector:
+      aws_tags:
+        Application: "analytics"
+        Tier: "ml"
+
+resources:
+  aws:
+    region: "eu-west-3"
+    instances:
+      - id: i-0123456789abcdef0
+        type: ec2
+        labels:
+          Application: "analytics"
+          Tier: "database"
+      - id: i-0abcdef1234567890
+        type: ec2
+        labels:
+          Application: "analytics"
+          Tier: "ml"
