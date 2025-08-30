@@ -3,7 +3,6 @@
 This project is the implementation of the approach described in the research paper "A Knowledge Graph Model for IT Infrastructure Mapping." It builds, maintains, and enriches a dynamic Knowledge Graph representing an IT infrastructure, linking business demands to the underlying technical resources (AWS, Kubernetes).
 
 ![Architecture Overview](images/ApproachOverview.png)
-*(Make sure to add your `ApproachOverview.png` image to an `images/` folder)*
 
 ---
 
